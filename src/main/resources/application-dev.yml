@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+  compression:
+    enabled: true
+    
+spring:
+  application:
+    name: blockchain
+    
+  profiles:
+    active: dev
+    
+  data: 
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: blockchain
+  
+  cache:
+    type: redis
+    
+  redis:
+    host: 127.0.0.1
+    database: 0
+    password: foobared
+  
+  thymeleaf:
+    cache: false
+    check-template: false
+    
+  devtools:
+    restart:
+      enabled: true
+      
+logging:
+    level:
+      org.springframework.boot: info
