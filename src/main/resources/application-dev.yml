@@ -28,9 +28,9 @@ spring:
   thymeleaf:
     cache: false
     check-template: false
-    
-  devtools:
-    restart:
+  
+  devtools: 
+    restart: 
       enabled: true
       
 logging:

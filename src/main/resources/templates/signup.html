@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+  	<title>注册账号</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:href="@{/image/favicon.ico}">
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/signup.css}">
+  </head>
+
+  <body>
+   	<form class="form-signin" id="sign-form" action="/public/signup" method="post">
+    	<div class="message">
+    	</div>
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">欢迎注册</h1>
+        <p>提示注册账号的同时系统会自动生成钱包.</p>
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" id="inputUsername" class="form-control" name="username" maxlength="10" placeholder="请输入用户名" required autofocus autocomplete="false">
+        <label for="inputUsername">用户名</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" name="password" maxlength="11" placeholder="请输入密码" required>
+        <label for="inputPassword">密码</label>
+      </div>
+      
+      <div class="form-label-group">
+        <input type="text" id="inputNickname" class="form-control" name="nickname" maxlength="10" placeholder="请输入昵称" required>
+        <label for="inputNickname">昵称</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" name="agreement" required> 同意 <a href="/public/agreement" target="_blank">注册协议</a>
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">提交</button>
+      <hr>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+    </form>
+  </body>
+</html>

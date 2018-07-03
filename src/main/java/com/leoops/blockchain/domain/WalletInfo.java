@@ -24,7 +24,7 @@ public class WalletInfo {
 	@Id
 	private String id;
 	
-	private String name;
+	private String userId;
 	
     public String privateKey;
     

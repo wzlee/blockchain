@@ -11,16 +11,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.leoops.blockchain.domain.BlockInfo;
 import com.leoops.blockchain.domain.TransactionInfo;
 import com.leoops.blockchain.domain.TransactionInput;
 import com.leoops.blockchain.domain.TransactionOutput;
+import com.leoops.blockchain.domain.UserInfo;
 import com.leoops.blockchain.repository.BlockInfoRepository;
 import com.leoops.blockchain.repository.TransactionInfoRepository;
 import com.leoops.blockchain.repository.TransactionInputRepository;
 import com.leoops.blockchain.repository.TransactionOutputRepository;
+import com.leoops.blockchain.repository.UserInfoRepository;
 import com.leoops.blockchain.repository.WalletInfoRepository;
 import com.leoops.blockchain.utils.RSAUtil;
 
@@ -49,13 +52,19 @@ public class BlockchainApplicationTests {
 	@Autowired
 	WalletInfoRepository walletInfoRepository;
 	
+	@Autowired
+	UserInfoRepository userInfoRepository;
+	
 	@Test
 	public void contextLoads() {
 	}
 	
 	@Test
 	public void testRepo() {
-		System.out.println(blockInfoRepository.save(BlockInfo.builder().hash("2dsjfjsdjfjjasdjfjasdf").build()));
+//		String password = "{bcrypt}$2a$10$jZ0UGu6SBqftlZIyytzjDOx9V7pX94UlQPdMpYIoJ/z1UOsR8HDiC";
+		String password = PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("123456");
+		userInfoRepository.save(UserInfo.builder().username("test").password(password).nickname("测试用户").build());
+//		System.out.println(blockInfoRepository.save(BlockInfo.builder().hash("2dsjfjsdjfjjasdjfjasdf").build()));
 	}
 	
 	@Test

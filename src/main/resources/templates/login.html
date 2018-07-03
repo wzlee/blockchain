@@ -1,33 +1,39 @@
 <!doctype html>
 <html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" th:href="@{/image/favicon.ico}">
+<head>
+	<title>登录-区块链系统</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" th:href="@{/image/favicon.ico}">
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
 
-    <title>登录-区块链系统</title>
-
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/login.css}">
-  </head>
-
-  <body class="text-center">
-    <form class="form-signin">
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">欢迎登录</h1>
-      <label for="inputEmail" class="sr-only">用户名</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="请输入用户名" value="user" required autofocus>
-      <label for="inputPassword" class="sr-only">密码</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="请输入密码" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> 记住我
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
-    </form>
-  </body>
+<body>
+	<form class="form-signin" action="/login" method="post">
+		<p th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">账号或密码有误.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    	<span aria-hidden="true">&times;</span>
+		  	</button>
+	  	</p>
+		<p th:if="${param.logout}" class="alert alert-success alert-dismissible fade show" role="alert">您已成功退出登录.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    	<span aria-hidden="true">&times;</span>
+		  	</button>
+	  	</p>
+		<h1 class="h3 mb-3 font-weight-normal text-center">欢迎登录</h1>
+		<label for="username" class="sr-only">用户名</label> 
+		<input type="text" id="username" class="form-control" name="username" placeholder="请输入用户名" value="user" required autofocus> 
+		<label for="password" class="sr-only">密码</label> 
+		<input type="password" id="password" class="form-control" name="password" placeholder="请输入密码" required>
+		<div class="form-check checkbox mb-3">
+			<input type="checkbox" class="form-check-input" id="remember-me" name="remember-me"> 
+			<label class="form-check-label" for="remember-me">记住我</label>
+			<a class="float-md-right" href="/public/signup" target="_blank">注册账号</a>
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+	</form>
+</body>
 </html>

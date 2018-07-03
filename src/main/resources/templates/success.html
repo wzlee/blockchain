@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>注册成功</title>
+    <meta charset="utf-8">
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/vendor/font-awesome-4.7.0/css/font-awesome.min.css}">
+</head>
+<body>
+	
+	<div class="container mt-3">
+		<div class="jumbotron">
+		  <h1 class="display-4">恭喜您，注册成功</h1>
+		  <p class="lead">以下为您的钱包机密信息，请注意妥善保管.</p>
+		  <hr class="my-4">
+		  <p>钱包公钥：<i class="fa fa-clipboard" data-clipboard-target="#public-key"></i><code id="public-key" th:text="${walletInfo.publicKey}"></code></p>
+		  <p>钱包私钥：<i class="fa fa-clipboard" data-clipboard-target="#private-key"></i><code id="private-key" th:text="${walletInfo.privateKey}"></code></p>
+		  <p class="lead">
+		    <a class="btn btn-success btn-lg" href="/wallet/info" role="button">进入钱包 »</a>
+		  </p>
+		</div>
+	</div>
+	    
+	<script th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>  
+	<script th:src="@{/webjars/bootstrap/4.1.1/js/bootstrap.min.js}"></script>
+	<script th:src="@{/vendor/clipboard/dist/clipboard.min.js}"></script>
+	<script th:src="@{/js/success.js}"></script>
+</body>
+	
+</html>
