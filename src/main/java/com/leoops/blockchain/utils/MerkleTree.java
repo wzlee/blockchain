@@ -87,6 +87,6 @@ public class MerkleTree {
     public static void main(String[] args) {
     	MerkleTree merkleTree = new MerkleTree(Arrays.asList("1fa3246fd65526f3757d735fa05dccdd7bc54ca83407850d1853fd7c415efadc"));
     	merkleTree.builderTree();
-    	System.out.println(merkleTree.root);
+    	System.out.println(merkleTree.toString());
     }
 }

@@ -20,6 +20,8 @@ import java.util.Base64;
 
 import javax.crypto.Cipher;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 public class RSAUtil {
 
 	public static final String KEY_ALGORITHM = "RSA";
@@ -31,7 +33,7 @@ public class RSAUtil {
 	 */
 	public static KeyPair generateKeyPair() {
 		try {
-			Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+			Security.addProvider(new BouncyCastleProvider());
 			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA","BC");
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
 			keyGen.initialize(1024, random); //256
